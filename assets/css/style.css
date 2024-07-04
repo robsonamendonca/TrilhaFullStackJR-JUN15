@@ -8,6 +8,9 @@
     --doing: yellow;
     --finish: green;
 
+    --success: #1e9131;
+    --error: #d41717;
+
 }
 
 * {
@@ -80,11 +83,12 @@ html, body{
     height: 700px;
     background-color: #ffffff18;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 10px 10px 18px;
     box-shadow: 0 0 9px 1px #00000047;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
 }
 
 .card {
@@ -105,10 +109,10 @@ html, body{
 
 .card h3 {
     margin: .3rem 0;
+    color: #b8b5b5;
 }
 
 .card p {
-    margin: 0;
     padding-top: 1rem;
     border-top: solid 1px #797979;
     color: #9c9c9f;
@@ -146,3 +150,168 @@ html, body{
 .FINISHED .card .status {
     background-color: var(--finish);
 }
+
+/* Modal*/
+.modal-default {
+    border: solid 1px gray;
+    border-radius: 5px;
+    background-color: var(--preto);
+    padding: 20px;
+}
+
+.modal-default::backdrop {
+    background-color: #0000008a;
+}
+
+#new-card-modal div {
+    display: flex;
+    flex-direction: column;
+    color: #b8b5b5;
+}
+
+#new-card-modal input, textarea {
+    background-color: var(--preto);
+    margin: 10px 0 ;
+    border: solid 1px #8080808e;
+    border-radius: 5px;
+    color: inherit;
+    padding: 10px;
+    width: 20rem;
+}
+
+#new-card-modal button {
+    margin-top: 1rem;
+    background-color: var(--vermelho);
+    color: var(--branco);
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: .5rem 1.5rem;
+    font-size: 1rem;
+    box-shadow: 2px 2px 7px 1px #0000006e;
+    transition: .2s;
+}
+
+#new-card-modal button:hover {
+   transform: scale(1.05);
+}
+
+.close-new-card-modal {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 10px;
+    color: var(--branco);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.close-new-card-modal:hover {
+   transform: scale(1.05);
+}
+
+.cards-container {
+    scrollbar-width: thin;
+    scrollbar-color: #242424 #4d4f50;
+    overflow: auto;
+}
+
+.cards-container::-webkit-scrollbar{
+    height: 8px;
+    width: 8px;
+}
+.cards-container::-webkit-scrollbar-track {
+   border-radius: 5px;
+   background-color: #4d4f50;
+}
+
+.cards-container::-webkit-scrollbar-track:hover {
+    background-color: #4d4f50;
+ }
+ 
+ .cards-container::-webkit-scrollbar-track:active {
+    background-color: #4d4f50;
+ }
+
+ .cards-container::-webkit-scrollbar-thumb {
+   border-radius: 5px;
+   background-color: #242424;
+}
+.cards-container::-webkit-scrollbar-thumb:hover {
+    background-color: #242424;
+ }
+ .cards-container::-webkit-scrollbar-thumb:active {
+    background-color: #242424;
+ }
+
+ /* modal confirm */
+
+ .btn-default {
+    padding: .5rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin: 0 .5rem;
+    border: solid 1px gray;
+    transition: .2s;
+ }
+
+ .btn-default:hover{
+    transform: scale(1.05);
+ }
+
+ #delete-confirm{
+    color: var(--branco);
+ }
+
+ #confirm-delete {
+    color: var(--branco);
+    background-color: var(--vermelho);    
+ }
+ #cancel-delete {
+    color: var(--branco);
+    background-color: transparent;    
+ }
+
+ .message {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    bottom: 20px;
+    right: 20px;
+    font-size: .9rem;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    color: var(--branco);
+    padding: 0;
+    width: 0;
+    transition: .4s;
+ }
+
+ #error {
+    background-color: var(--error);
+ }
+
+ #success {    
+    background-color: var(--success);
+ }
+
+ .show {
+    width: fit-content;
+    padding: 10px 20px;
+ }
+
+ /* mobile */
+
+ @media (max-width: 992px) {
+    .todo-list-container{
+        grid-template-columns: 1fr;
+
+    }
+
+    .cards-container {
+        height: auto;
+        padding: 10px 10px 100px 1opx;
+    }
+ }

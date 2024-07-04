@@ -1,3 +1,6 @@
-import { teste } from "./dragCardEvents.js";
+import { listAllCards } from "./showCards.js";
+import { createCardEvents } from "./createCardEvents.js";
 
-teste("funcionou...")
+listAllCards()
+
+createCardEvents();
